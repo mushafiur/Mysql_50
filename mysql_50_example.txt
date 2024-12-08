@@ -1,0 +1,148 @@
+SELECT * FROM Customers;
+
+SELECT CustomerName, City, Country FROM Customers;
+
+SELECT Country FROM Customers;
+
+SELECT DISTINCT Country FROM Customers;
+
+SELECT COUNT(DISTINCT Country) FROM Customers;
+
+SELECT * FROM Customers WHERE Country = "Mexico";
+
+SELECT * FROM Customers WHERE CustomerID=1;
+
+SELECT * FROM Products WHERE price > 30;
+
+SELECT * FROM Products WHERE price <= 30;
+
+SELECT * FROM Products WHERE price >= 25;
+
+SELECT * FROM Products WHERE Price <> 18;
+
+SELECT * FROM Products WHERE Price BETWEEN 50 AND 60;
+
+SELECT * FROM Customers WHERE City LIKE "s%";
+
+SELECT * FROM Customers WHERE City IN ("Paris", "London");
+
+SELECT * FROM Customers WHERE Country = "Germany" AND City = "Berlin";
+
+SELECT * FROM Customers WHERE Country = "Germany" OR City = "Berlin";
+
+SELECT * FROM Customers WHERE City="Berlin" OR City="Stuttgart";
+
+SELECT * FROM Customers WHERE NOT Country="Germany";
+
+SELECT * FROM Customers WHERE Country="Germany" AND (City="Berlin" OR City="Stuttgart");
+
+SELECT * FROM Customers WHERE NOT Country="Germany" AND NOT Country="USA";
+
+SELECT * FROM Customers ORDER BY Country;
+
+SELECT * FROM Customers ORDER BY Country DESC;
+
+SELECT * FROM Customers ORDER BY Country, CustomerName;
+
+SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;
+
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NULL;
+
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NOT NULL;
+
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+WHERE CustomerID = 1;
+
+UPDATE Customers
+SET PostalCode = 00000
+WHERE Country = 'Mexico';
+
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+DELETE FROM Customers;
+
+SELECT * FROM Customers LIMIT 3;
+
+SELECT * FROM Customers
+LIMIT 3 OFFSET 3;
+
+SELECT * FROM Customers
+WHERE Country='Germany'
+LIMIT 3;
+
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+
+SELECT MAX(Price) AS LargestPrice
+FROM Products;
+
+SELECT COUNT(ProductID)
+FROM Products;
+
+SELECT AVG(Price)
+FROM Products;
+
+SELECT SUM(Quantity)
+FROM OrderDetails;
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a%';
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%a';
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%or%';
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE '_r%';
+
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a__%';
+
+SELECT * FROM Customers
+WHERE ContactName LIKE 'a%o';
+
+SELECT * FROM Customers
+WHERE CustomerName NOT LIKE 'a%';
+
+SELECT * FROM Customers
+WHERE City LIKE 'ber%';
+
+SELECT * FROM Customers
+WHERE City LIKE 'L_n_on';
+
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+
+SELECT * FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');
+
+SELECT * FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+
+WHERE Price BETWEEN 10 AND 20
+AND CategoryID NOT IN (1,2,3);
+
+SELECT * FROM Products
+WHERE ProductName BETWEEN "Carnarvon Tigers" AND "Chef Anton's Cajun Seasoning"
+ORDER BY ProductName;
+
+
